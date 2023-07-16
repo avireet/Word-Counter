@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Word Counter</title>
+
+  <!-- CSS CODE -->
+  <style>
+   body {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color:cornsilk; 
+  }
+  /*  url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSz_LvXoOXP6NWVpDunh7D31saxZ6ZTEbnVjmy4Vw-2U8AkrNG5l_E4vGbHZYeowVeNE_w&usqp=CAU")*/
+  .word-counter-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
+  width: 750px;
+  margin: auto;
+  margin-top: 190px;
+  margin-bottom: 150px;
+  background-color:rgb(21, 36, 80);
+  border-radius: 35px;
+  padding-bottom: 20px;
+  border-color: black;
+
+}
+
+.word-counter-container h1 {
+  font-size: 50px;
+  font-family: Garamond, serif;
+  text-align: center;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  border-top: 0px;
+}
+
+.word-counter-container textarea {
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  min-height: 100px;
+  max-height: 200px;
+  border: 2px solid #14213d;
+  border-radius: 8px;
+  padding: 24px;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  resize: vertical;
+  line-height: 2;
+  margin: 0 auto;
+}
+
+.word-counter-container .word-count {
+  color: white;
+  font-family: Garamond, serif;
+  font-size: 22px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color:rgb(21, 36, 80);
+      color: white;
+      padding: 10px;
+      margin: 0;
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+    }
+
+    .navbar li {
+      float: left;
+      list-style: none;
+      margin: 3px 4px;
+      font-size: 20px;
+    }
+
+    .navbar li a {
+      padding: 3px 3px;
+      font-family: Garamond, serif;
+      text-decoration: none;
+      color: white;
+      margin-right: 40px;
+    }
+
+    .navbar li a:hover {
+      text-decoration: none;
+      border-radius: 18px;
+      color:rgb(24, 21, 21);
+      background-color:rgb(231, 215, 215);
+    }
+
+     /* padding: 200px 220px; */
+    
+    .navdiv1{
+        margin-left: 0px;
+    }
+
+    .navdiv2
+    {
+      margin-left: 120px;
+      margin-right: 450px;
+      position: relative;
+      
+    }
+    
+.clear-button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: rgb(231, 215, 215);
+  color: rgb(24, 21, 21);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.navdiv3 {
+  margin-right: 25px; /* Adjust margin-right for spacing */
+}
+
+/* Media queries for responsiveness */
+
+@media screen and (max-width: 768px) {
+  .word-counter-container {
+    margin-top: 100px; /* Adjust margin-top for smaller screens */
+  }
+  
+  .word-counter-container textarea {
+    max-width: 100%; /* Adjust max-width to occupy the full width of the container */
+  }
+  
+}
+   
+  </style>
+  <!-- CSS CODE ENDS -->
+</head>
+
+<body>
+  
+  <nav class="navbar">
+    <div class="navdiv1">
+      <h1>WORD COUNTER</h1>
+      </div>
+
+    <div class="navdiv2">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="about.html" target="_blank">About us</a></li>
+        <li><a href="signup.html" target="_blank">SignUp</a></li>
+       
+      </ul>
+    </div>
+    
+
+    <div class="navdiv3">
+        <ul>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      
+    </div>
+  </nav>
+
+  <div class="word-counter-container">
+    <h1>Word Counter</h1>
+    <textarea class="words"  placeholder="Type your Text Here........"></textarea>
+    <div class="word-count">No. of words: <span>0</span></div>
+    <button class="clear-button">Clear</button>
+  </div>
+  
+  
+  <!-- JS CODE --> 
+  <script>
+
+const wordsTextarea = document.querySelector(".word-counter-container .words");
+const wordCount = document.querySelector(".word-counter-container .word-count span");
+const clearButton = document.querySelector(".word-counter-container .clear-button");
+
+const countWords = () => {
+  let words = wordsTextarea.value;
+  let wordsTrimmed = words.replace(/[^\w\s]|_/g, "").replace(/\s+/g, " ").trim(); // Remove special characters and extra whitespace
+  let splitWords = wordsTrimmed.split(" ");
+
+  let numberOfWords = 0;
+  for (let i = 0; i < splitWords.length; i++) {
+    if (splitWords[i] !== "" && isNaN(splitWords[i])) {
+      numberOfWords++;
+    }
+  }
+
+  wordCount.innerHTML = numberOfWords;
+};
+
+const clearText = () => {
+  wordsTextarea.value = ""; // Clear the textarea
+  wordCount.innerHTML = 0; // Reset the word count
+};
+
+wordsTextarea.addEventListener("input", countWords);
+clearButton.addEventListener("click", clearText);
+
+    
+  </script>
+  <!-- JS CODE ENDS -->
+</body>
+
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Word Counter - Sign Up</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color:cornsilk;
+            /* rgb(203, 203, 239);*/
+        }
+
+        .container {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            background-color:rgb(21, 36, 80);
+            border: 1px solid #120404;
+            border-radius: 10px;
+            margin-top: 100px;
+
+        }
+        h2{
+            margin-top: 100px;
+            text-align: center;
+            font-size: 80px;
+        }
+
+        h1 {
+            text-align: center;
+            color:white;
+        }
+
+        .form {
+            margin-bottom: 30px;
+            margin-right: 30px;
+        }
+
+        .form label {
+            display: block;
+            color:white;
+            font-weight: bold;
+        }
+
+        .form input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form .btn {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        background-color: #4CAF50;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        box-sizing: content-box;
+        }
+
+        .form .btn:hover {
+        background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h2>WORD COUNTER</h2>
+    <div class="container">
+        <h1>Sign Up</h1>
+        <form >
+            <div class="form">
+                <label for="email">Email:</label>
+                <input type="email" required>
+            </div>
+            <div class="form">
+                <label for="password">Password:</label>
+                <input type="password" required>
+            </div>
+            <div class="form">
+                <input type="submit" class="btn" value="Sign Up">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

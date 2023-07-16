@@ -1,2 +1,2 @@
 # Word-Counter
-A beginner project for HTML  and JavaScript learners 
+A beginner project for HTML, CSS and JavaScript learners 
